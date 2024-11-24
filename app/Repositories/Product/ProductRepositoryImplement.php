@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Repositories\Product;
+
+use LaravelEasyRepository\Implementations\Eloquent;
+use App\Models\Product;
+
+class ProductRepositoryImplement extends Eloquent implements ProductRepository
+{
+    /**
+     * Model class to be used in this repository for the common methods inside Eloquent.
+     * Don't remove or change $this->model variable name.
+     * @property Model|mixed $model;
+     */
+    protected $model;
+
+    public function __construct(Product $model)
+    {
+        $this->model = $model;
+    }
+
+    public function all()
+    {
+        // Return all products
+        return $this->model->all();
+    }
+
+    public function find($id)
+    {
+        // Find a product by ID
+        return $this->model->find($id);
+    }
+}
